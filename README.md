@@ -24,7 +24,7 @@ A modern, fully-responsive Fullstack Developer portfolio built with **React 18**
 prasannaraj-portfolio/
 ├── public/
 │   ├── favicon.svg
-│   └── resume.pdf          ← Add your resume here
+│   └── resume.pdf        
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.jsx
@@ -38,7 +38,7 @@ prasannaraj-portfolio/
 │   │   ├── SectionWrapper.jsx
 │   │   └── SectionHeader.jsx
 │   ├── data/
-│   │   └── portfolio.js    ← Edit ALL content here
+│   │   └── portfolio.js   
 │   ├── hooks/
 │   │   ├── useTheme.js
 │   │   └── useScrollProgress.js
