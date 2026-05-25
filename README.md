@@ -161,4 +161,4 @@ All portfolio data lives in **`src/data/portfolio.js`**. Edit once, updates ever
 
 ---
 
-© 2025 Prasannaraj S — Chennai, India
+© 2026 Prasannaraj S — Chennai, India
