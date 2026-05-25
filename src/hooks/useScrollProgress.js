@@ -1,0 +1,23 @@
+import { useState, useEffect } from 'react'
+
+/**
+ * useScrollProgress — returns a 0–100 value representing
+ * how far down the page the user has scrolled.
+ */
+export function useScrollProgress() {
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = document.documentElement
+      const scrolled = el.scrollTop
+      const total = el.scrollHeight - el.clientHeight
+      setProgress(total > 0 ? (scrolled / total) * 100 : 0)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return progress
+}

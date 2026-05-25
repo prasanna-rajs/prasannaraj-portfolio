@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Google Fonts fallback ─── */
+
+/* ─── CSS Custom Properties ─── */
+:root {
+  --accent-purple: #7c6bff;
+  --accent-pink:   #ff6b9d;
+  --accent-teal:   #00d4aa;
+  --grad-main: linear-gradient(135deg, #7c6bff, #ff6b9d);
+  --grad-teal: linear-gradient(135deg, #00d4aa, #7c6bff);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+/* ─── Base ─── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-purple);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-pink);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(124, 107, 255, 0.3);
+  color: inherit;
+}
+
+/* ─── Reusable Gradient Text ─── */
+.gradient-text {
+  background: var(--grad-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-teal {
+  background: var(--grad-teal);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glassmorphism ─── */
+.glass-dark {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(120, 100, 255, 0.12);
+}
+
+/* ─── Gradient Border Utility ─── */
+.grad-border {
+  position: relative;
+  border-radius: var(--radius-lg);
+}
+.grad-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--grad-main);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.grad-border:hover::before {
+  opacity: 1;
+}
+
+/* ─── Animated Blob ─── */
+@keyframes blob-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-40px) scale(1.06); }
+}
+.blob {
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  animation: blob-float 10s ease-in-out infinite;
+  position: absolute;
+  pointer-events: none;
+}
+.dark .blob {
+  opacity: 0.15;
+}
+
+/* ─── Typing cursor blink ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 0.8s step-end infinite;
+}
+
+/* ─── Scroll indicator bounce ─── */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(10px); }
+}
+.scroll-bounce {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+/* ─── Pulse dot ─── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.4); }
+  50%       { opacity: 0.6; box-shadow: 0 0 0 6px rgba(0, 212, 170, 0); }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ─── Progress bar gradient animation ─── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.progress-shimmer {
+  background: linear-gradient(90deg, #7c6bff, #ff6b9d, #00d4aa, #7c6bff);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ─── Card hover lift ─── */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(124, 107, 255, 0.18);
+}
+
+/* ─── Skill chip hover ─── */
+.skill-chip {
+  transition: all 0.25s ease;
+  cursor: default;
+}
+.skill-chip:hover {
+  background: var(--grad-main);
+  color: #fff !important;
+  border-color: transparent !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(124, 107, 255, 0.3);
+}
+
+/* ─── Button gradient ─── */
+.btn-grad {
+  background: var(--grad-main);
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(124, 107, 255, 0.35);
+}
+.btn-grad:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(124, 107, 255, 0.5);
+}
+
+/* ─── Section spacing ─── */
+.section-padding {
+  padding: 4rem 5% 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── Input focus ring ─── */
+.input-field:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px rgba(124, 107, 255, 0.15);
+}
+
+/* ─── Mobile nav open animation ─── */
+@keyframes nav-slide-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nav-open {
+  animation: nav-slide-down 0.2s ease forwards;
+}
+
+/* ─── Responsive typography ─── */
+.hero-name {
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  word-break: break-word;
+}
+.section-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
