@@ -6,7 +6,6 @@ A modern, fully-responsive Fullstack Developer portfolio built with **React 18**
 
 ## ✨ Features
 
-- 🌗 Dark / Light mode (system-aware + localStorage)
 - 🎬 Framer Motion scroll & entry animations
 - ⌨️ Typing animation (Hero section)
 - 🟣 Glassmorphism cards throughout
