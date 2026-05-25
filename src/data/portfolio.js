@@ -6,7 +6,7 @@ export const personal = {
   location: 'Chennai, India',
   email: 'prasannaasrini@gmail.com',
   phone: '+91 9655305184',
-  resumeUrl: 'public/Prasannaraj-Resume.pdf',
+  resumeUrl: '/Prasannaraj-Resume.pdf',
   bio: [
     "I'm a passionate Fullstack Web Developer and Computer Science Engineering graduate from Sathyabama Institute of Science and Technology. I love building intelligent, user-centric web applications that solve real-world problems.",    
     'From crafting responsive interfaces with React and Tailwind to building robust APIs with FastAPI and Django — I enjoy the full spectrum of web development. Currently exploring AI integration in modern web apps.',
